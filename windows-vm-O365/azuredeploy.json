@@ -30,21 +30,25 @@
     },
     "vmOSVersion": {
       "type": "string",
-      "defaultValue": "2016-Datacenter",
+      "defaultValue": "2019-Datacenter",
       "allowedValues": [
-        "Windows-10-N-x64",
-        "Win7-SP1-Ent-N-x64",
-        "Win81-Ent-N-x64"
+        "2008-R2-SP1",
+        "2012-Datacenter",
+        "2012-R2-Datacenter",
+        "2016-Nano-Server",
+        "2016-Datacenter-with-Containers",
+        "2016-Datacenter",
+        "2019-Datacenter",
+        "2019-Datacenter-Core",
+        "2019-Datacenter-Core-smalldisk",
+        "2019-Datacenter-Core-with-Containers",
+        "2019-Datacenter-Core-with-Containers-smalldisk",
+        "2019-Datacenter-smalldisk",
+        "2019-Datacenter-with-Containers",
+        "2019-Datacenter-with-Containers-smalldisk"
       ],
       "metadata": {
         "description": "Which version of Windows would like to deploy"
-      }
-    },
-    "vmOsSkuVersion": {
-      "type": "string",
-      "defaultValue": "2019.10.14",
-      "metadata": {
-        "description": "VM Image SKU Version"
       }
     },
     "dnsLabelPrefix": {
@@ -97,8 +101,8 @@
     "vnet01Prefix": "10.0.0.0/16",
     "vnet01Subnet1Name": "Subnet-1",
     "vnet01Subnet1Prefix": "10.0.0.0/24",
-    "vmImagePublisher": "MicrosoftVisualStudio",
-    "vmImageOffer": "Windows",
+    "vmImagePublisher": "MicrosoftWindowsServer",
+    "vmImageOffer": "WindowsServer",
     "vmSubnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetName'), variables('Vnet01Subnet1Name'))]",
     "vmNicName": "[concat(parameters('VMName'), 'NetworkInterface')]",
     "vmIP01Name": "VMIP01",
@@ -183,7 +187,7 @@
             "publisher": "[variables('vmImagePublisher')]",
             "offer": "[variables('vmImageOffer')]",
             "sku": "[parameters('vmOSVersion')]",
-            "version": "[parameters('vmOsSkuVersion')]"
+            "version": "latest"
           },
           "osDisk": {
             "name": "[concat(parameters('vmName'),'_OSDisk')]",
