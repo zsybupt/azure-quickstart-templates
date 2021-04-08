@@ -30,7 +30,7 @@
     },
     "vmOSVersion": {
       "type": "string",
-      "defaultValue": "Windows-10-N-x64",
+      "defaultValue": "2016-Datacenter",
       "allowedValues": [
         "Windows-10-N-x64",
         "Win7-SP1-Ent-N-x64",
